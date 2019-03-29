@@ -1,0 +1,20 @@
+{
+  "name": "note",
+  "short_name": "note",
+  "icons": [
+    {
+      "src": "https://avatars0.githubusercontent.com/u/49019730?s=460&v=4",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://avatars0.githubusercontent.com/u/49019730?s=460&v=4",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#3eaf7c"
+}

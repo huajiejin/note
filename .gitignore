@@ -1,0 +1,9 @@
+# mac
+.DS_Store
+
+# vuepress
+.vuepress/dist/
+
+# C
+.demo/cim/c/*
+!.demo/cim/c/*.c

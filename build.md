@@ -25,5 +25,5 @@ git push -f git@github.com:name/repo.git master:gh-pages
 2. 点击Add Project选择note仓库，选择linux，node环境  
 3. 设置User Key，SETTINGS -> Projects -> 点击note项目右上角的设置按钮 -> PERMISSIONS,Checkout SSH keys,Add user key,点击Authorize with GitHub按钮 -> 点击Create and add user key按钮  
 4. BUILD SETTINGS,Environment Variables,添加GH_EMAIL GH_NAME  
-5. 配置node/.circleci/config.yml
+5. 配置note/.circleci/config.yml
 

@@ -11,10 +11,9 @@ jobs:
       # - restore_cache:
       #   keys:
       #     - node_modules
-      - run: npm i -g vuepress
+      - run: sudo npm i -g vuepress
       - run: ls -alh /usr/local/lib/node_modules
       - run: vuepress -V
-      # - run: sudo npm i -g vuepress
       # - save_cache:
       #     paths:
       #       - ~/usr/local/lib/node_modules

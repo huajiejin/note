@@ -10,13 +10,10 @@ jobs:
       - checkout
       - restore_cache:
         keys:
-          # when lock file changes, use increasingly general patterns to restore cache
-          - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          - node-v1-{{ .Branch }}-
-          - node-v1-
+          - node_modules
       - run: npm i -g vuepress
       - save_cache:
           paths:
-            - ~/usr/local/lib/node_modules  # location depends on npm version
-          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - ~/usr/local/lib/node_modules
+          key: node_modules
       - run: sh deploy.circleci.sh

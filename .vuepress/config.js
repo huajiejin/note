@@ -14,7 +14,7 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: '学习笔记',
+      title: '笔记',
       description: '知识总结，代码示例',
     },
     '/dev/': {

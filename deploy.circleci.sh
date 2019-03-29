@@ -1,4 +1,4 @@
-# deploy.sh
+# deploy.circleci.sh
 #! /bin/bash
 set -e
 
@@ -15,10 +15,10 @@ git add .
 git commit "-m$COMMIT_MSG"
 git push -f git@github.com:huajiejin/note.git master:gh-pages
 
-cd -
-git config user.name huajie
-git config user.email huajiejin@qq.com
-git add .
-git commit "-m$COMMIT_MSG"
-git pull
-git push
+# cd -
+# git config user.name huajie
+# git config user.email huajiejin@qq.com
+# git add .
+# git commit "-m$COMMIT_MSG"
+# git pull
+# git push

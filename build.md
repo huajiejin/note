@@ -20,11 +20,10 @@ git push -f git@github.com:name/repo.git master:gh-pages
 ```
 
 ## 添加自动集成 Circleci
-为了实现任意客户端push到master后自动部署
-
-### 使用Github授权登陆[Circleci](https://circleci.com/)
-### 点击Add Project选择note仓库，选择linux，node环境
-### 设置User Key，SETTINGS -> Projects -> 点击note项目右上角的设置按钮 -> PERMISSIONS,Checkout SSH keys,Add user key,点击Authorize with GitHub按钮 -> 点击Create and add user key按钮
-### BUILD SETTINGS,Environment Variables,添加GH_EMAIL GH_NAME
-### 配置node/.circleci/config.yml
+为了实现任意客户端push到master后自动部署  
+1. 使用Github授权登陆[Circleci](https://circleci.com/)  
+2. 点击Add Project选择note仓库，选择linux，node环境  
+3. 设置User Key，SETTINGS -> Projects -> 点击note项目右上角的设置按钮 -> PERMISSIONS,Checkout SSH keys,Add user key,点击Authorize with GitHub按钮 -> 点击Create and add user key按钮  
+4. BUILD SETTINGS,Environment Variables,添加GH_EMAIL GH_NAME  
+5. 配置node/.circleci/config.yml
 

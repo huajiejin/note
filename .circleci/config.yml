@@ -9,9 +9,12 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: node_modules-cache
+          keys: 
+            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - node-v1-{{ .Branch }}-
+            - node-v1-
       - run: npm i vuepress
       - save_cache:
-          key: node_modules-cache
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths: node_modules
       - run: sh deploy.circleci.sh

@@ -11,10 +11,11 @@ jobs:
       # - restore_cache:
       #   keys:
       #     - node_modules
-      - run: npm -v
-      - run: sudo npm i -g vuepress
+      - run: ll -ah ~/usr/local/lib/node_modules
+      - run: vuepress -V
+      # - run: sudo npm i -g vuepress
       # - save_cache:
       #     paths:
       #       - ~/usr/local/lib/node_modules
       #     key: node_modules
-      - run: sh deploy.circleci.sh
+      # - run: sh deploy.circleci.sh

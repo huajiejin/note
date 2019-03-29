@@ -27,3 +27,4 @@ git push -f git@github.com:name/repo.git master:gh-pages
 ### 设置User Key，SETTINGS -> Projects -> 点击note项目右上角的设置按钮 -> PERMISSIONS,Checkout SSH keys,Add user key,点击Authorize with GitHub按钮 -> 点击Create and add user key按钮
 ### BUILD SETTINGS,Environment Variables,添加GH_EMAIL GH_NAME
 ### 配置node/.circleci/config.yml
+

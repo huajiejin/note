@@ -8,12 +8,12 @@ jobs:
         only: master
     steps:
       - checkout
-      - restore_cache:
-        keys:
-          - node_modules
+      # - restore_cache:
+      #   keys:
+      #     - node_modules
       - run: npm i -g vuepress
-      - save_cache:
-          paths:
-            - ~/usr/local/lib/node_modules
-          key: node_modules
+      # - save_cache:
+      #     paths:
+      #       - ~/usr/local/lib/node_modules
+      #     key: node_modules
       - run: sh deploy.circleci.sh

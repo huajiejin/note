@@ -9,8 +9,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - node_modules
+          keys: node_modules
       - run: sudo npm i -g vuepress
       - save_cache:
           key: node_modules

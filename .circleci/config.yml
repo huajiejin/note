@@ -10,10 +10,11 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - node_modules
+            - vuepress-cache
+            - vuepress-cache
       - run: sudo npm i -g vuepress
       - save_cache:
-          key: node_modules
+          key: vuepress-cache
           paths:
             - /usr/local/lib/node_modules
       - run: sh deploy.circleci.sh

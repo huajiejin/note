@@ -10,10 +10,10 @@ jobs:
       - checkout
       - restore_cache:
           keys: 
-            - node-v1-{{ .Branch }}-
+            - node-v1-v-
             - node-v1-
       - run: npm i vuepress
       - save_cache:
-          key: node-v1-{{ .Branch }}-
+          key: node-v1-v-
           paths: node_modules
       - run: sh deploy.circleci.sh

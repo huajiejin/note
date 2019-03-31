@@ -32,12 +32,17 @@ module.exports = {
     repo: 'huajiejin/note',
     editLinks: true,
     editLinkText: '在 GitHub 上编辑此页',
-    // lastUpdated: '最后一次更新',
     serviceWorker: { updatePopup: true },
     locales: {
       '/': {
         label: '首页',
         selectText: '首页',
+        nav: [
+          { text: '文章', link: '/blog/' },
+        ],
+        sidebar: {
+          '/blog/': genSidebarConfig('所有文章', [ '', 'puppeteer', ]),
+        }
       },
       '/dev/': {
         label: '开发笔记',
@@ -52,10 +57,7 @@ module.exports = {
           },
           { text: '后端', link: '/dev/back-end/' },
           { text: '工具', link: '/dev/tool/' },
-        ],
-        sidebar: {
-          '/dev/front-end/react/': genSidebarConfig('react', [ '', 'b', 'a', ]),
-        }
+        ]
       },
       '/cim/': {
         label: '计算机信息管理',

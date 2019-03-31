@@ -1,8 +1,12 @@
+---
+sidebarDepth: 0
+---
 # 本站创建记录
 
-## 本地环境
+::: tip 本地环境
 node 10.15.3  
-npm 6.4.1  
+npm 5.3.0  
+:::
 
 ## 安装并配置 Vuepress
 ``` bash
@@ -10,6 +14,9 @@ npm i -g vuepress
 # mkdir note && "Hello World" > note/READEME.md
 # 参考官方文档写配置文件note/.vuepress/config.js
 vuepress dev
+# 或者
+npm i vuepress
+npx vuepress dev
 ```
 
 ## 本地执行脚本部署到 GitHub Pages

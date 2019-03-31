@@ -1,0 +1,19 @@
+{
+  "name": "note",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huajiejin/note.git"
+  },
+  "keywords": [],
+  "author": "huajie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huajiejin/note/issues"
+  },
+  "homepage": "https://github.com/huajiejin/note#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.10",
+    "webpack-dev-middleware": "^3.5.2"
+  }
+}

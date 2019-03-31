@@ -7,6 +7,7 @@ npx vuepress build
 NOW=`date "+%Y-%m-%d %H:%M:%S"`
 COMMIT_MSG="deploy $NOW"
 
+cp -r .circleci .vuepress/dist/
 cd .vuepress/dist
 git init
 git config user.name huajie

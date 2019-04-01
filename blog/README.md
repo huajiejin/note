@@ -11,7 +11,7 @@ npm 5.3.0
 ## 安装并配置 Vuepress
 ``` bash
 npm i -g vuepress
-# mkdir reponame && "Hello World" > reponame/READEME.md
+# mkdir reponame && echo "Hello World" > reponame/READEME.md
 # 参考官方文档写配置文件reponame/.vuepress/config.js
 vuepress dev
 # 或者
@@ -23,8 +23,8 @@ npx vuepress dev
 <<< @/deploy.sh
 ``` bash
 # 关键代码，把dist目录强推到gh-pages分支
-git push -f git@github.com:username/repo.git master:gh-pages
-# 访问路径 https://username.github.io/repo/
+git push -f git@github.com:username/reponame.git master:gh-pages
+# 访问路径 https://username.github.io/reponame/
 ```
 
 ## 添加自动集成 Circleci

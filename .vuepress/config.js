@@ -41,7 +41,7 @@ module.exports = {
           { text: '文章', link: '/blog/' },
         ],
         sidebar: {
-          '/blog/': genSidebarConfig('所有文章', [ '', 'puppeteer', ]),
+          '/blog/': genSidebarConfig('所有文章', [ '', 'puppeteer', 'antd', 'electron', ]),
         }
       },
       '/dev/': {

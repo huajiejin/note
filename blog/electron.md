@@ -20,3 +20,7 @@ yarn add electron -D
 yarn start
 yarn start:electron
 ```
+
+## 打包
+
+TODO

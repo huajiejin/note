@@ -48,15 +48,8 @@ module.exports = {
         label: '开发笔记',
         selectText: '开发笔记',
         nav: [
-          {
-            text: '前端',
-            items: [
-              { text: 'react', link: '/dev/front-end/react/' },
-              { text: 'vue', link: '/dev/front-end/vue/' },
-            ]
-          },
+          { text: '前端', link: '/dev/front-end/' },
           { text: '后端', link: '/dev/back-end/' },
-          { text: '工具', link: '/dev/tool/' },
         ]
       },
       '/cim/': {

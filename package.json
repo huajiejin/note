@@ -12,6 +12,10 @@
     "url": "https://github.com/huajiejin/note/issues"
   },
   "homepage": "https://github.com/huajiejin/note#readme",
+  "scripts": {
+    "dev": "npm run build; vuepress dev",
+    "build": "vuepress build"
+  },
   "dependencies": {
     "puppeteer": "^1.13.0"
   },

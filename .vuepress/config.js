@@ -41,7 +41,7 @@ module.exports = {
           { text: '文章', link: '/blog/' },
         ],
         sidebar: {
-          '/blog/': genSidebarConfig('所有文章', [ '', 'puppeteer', 'antd', 'electron', 'virtualbox' ]),
+          '/blog/': genSidebarConfig([ '', 'puppeteer', 'antd', 'electron', 'virtualbox' ], '所有文章'),
         }
       },
       '/dev/': {
@@ -50,7 +50,10 @@ module.exports = {
         nav: [
           { text: '前端', link: '/dev/front-end/' },
           { text: '后端', link: '/dev/back-end/' },
-        ]
+        ],
+        sidebar: {
+          '/dev/': genSidebarConfig([ '', 'vim' ]),
+        }
       },
       '/cim/': {
         label: '计算机信息管理',
@@ -71,7 +74,7 @@ module.exports = {
   },
 }
 
-function genSidebarConfig (title, children) {
+function genSidebarConfig (children, title) {
   return [
     {
       title,

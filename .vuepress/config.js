@@ -42,7 +42,7 @@ module.exports = {
         ],
         sidebar: {
           '/blog/': genSidebarConfig([ '', 'puppeteer', 'antd', 'electron', 'virtualbox' ], '所有文章'),
-        }
+        },
       },
       '/dev/': {
         label: '开发笔记',
@@ -66,6 +66,9 @@ module.exports = {
             ]
           }
         ],
+        sidebar: {
+          '/cim/c/': genSidebarConfig([ '1', '2', '3', '4', '5', '6', '7', '8', '9' ], '目录'),
+        },
       },
     },
   },

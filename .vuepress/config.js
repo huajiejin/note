@@ -52,7 +52,7 @@ module.exports = {
           { text: '后端', link: '/dev/back-end/' },
         ],
         sidebar: {
-          '/dev/': genSidebarConfig([ '', 'mac', 'nginx', 'vim' ]),
+          '/dev/': genSidebarConfig([ '', 'util', 'mac', 'nginx', 'vim', 'ssh' ]),
         }
       },
       '/cim/': {

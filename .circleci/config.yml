@@ -8,7 +8,7 @@ jobs:
       - image: circleci/node:10.15.3
     steps:
       - checkout
-      - run: npm i -g vuepress@0.14.10
+      - run: sudo npm i -g vuepress@0.14.10
       - run: vuepress build
       - run:
           name: deploy

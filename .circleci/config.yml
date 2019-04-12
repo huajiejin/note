@@ -8,12 +8,13 @@ jobs:
       - image: circleci/node:10.15.3
     steps:
       - checkout
-      # - restore_cache:
-      #     keys: 
-      #       - v1-dependencies-{{ checksum "package.json"}}
-      #       - v1-dependencies-
-      - run: npm i vuepress@0.14.10
-      # - save_cache:
-      #     key: v1-dependencies-{{ checksum "package.json"}}
-      #     paths: node_modules
-      - run: sh deploy.circleci.sh
+      - run: npm i -g vuepress@0.14.10
+      - run: vuepress build
+      - run:
+          name: deploy
+          command: |
+            git config --global user.email "huajiejin@qq.com"
+            git config --global user.name "huajie"
+            git add -f .vuepress/dist
+            git commit -m 'deploy from circleci'
+            git push origin `git subtree split --prefix .vuepress/dist master`:gh-pages --force

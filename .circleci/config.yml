@@ -8,12 +8,12 @@ jobs:
       - image: circleci/node:10.15.3
     steps:
       - checkout
-      - restore_cache:
-          keys: 
-            - v1-dependencies-{{ checksum "package.json"}}
-            - v1-dependencies-
+      # - restore_cache:
+      #     keys: 
+      #       - v1-dependencies-{{ checksum "package.json"}}
+      #       - v1-dependencies-
       - run: npm i vuepress@0.14.10
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package.json"}}
-          paths: node_modules
+      # - save_cache:
+      #     key: v1-dependencies-{{ checksum "package.json"}}
+      #     paths: node_modules
       - run: sh deploy.circleci.sh

@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/huajiejin/note#readme",
   "scripts": {
-    "dev": "npm run build; vuepress dev",
+    "dev": "vuepress dev",
     "build": "vuepress build"
   },
   "dependencies": {

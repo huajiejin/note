@@ -26,9 +26,9 @@ vi authorized_keys
 ```
 
 ``` bash
-# centOS ssh配置和重启命令
+# CentOS
+# ssh配置 Port 字段支持多个
 vi /etc/ssh/sshd_config
+# 重启命令
 service sshd restart
-
-Port 字段支持多个
 ```

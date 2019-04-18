@@ -1,26 +1,58 @@
 # 创建一个electron项目
 
-## 首先搭建一个普通的web项目
-[以下以这个react项目为例子](/blog/antd.md)
+## 环境
+- node v10.15.3
+- npm v6.4.1
+- yarn v1.12.3
 
-## 安装依赖
+## 使用electron-vue
+
+### 安装
 ``` bash
-yarn add electron -D
-# 修改package.json
-# "main": "main.js"
-# "scripts": {
-#   "start:electron": "electron ."
-# }
+npx vue-cli init simulatedgreg/electron-vue project-name
+cd project-name
+yarn
+# 按需加载elementui的依赖
+yarn add element-ui -S
+yarn add babel-plugin-component -D
 ```
 
-## 根目录下创建main.js
-
-## 启动
+## 命令
 ``` bash
-yarn start
-yarn start:electron
+# 开发环境
+npm run dev
+# 构建
+npm run build
+# 打包
+npm run pack
 ```
 
-## 打包
+## 按需加载elementui
 
-TODO
+- 合并下面的配置到 .babelrc (electron-vue生成的默认配置添加上plugins参数)
+``` json
+{
+  "presets": [["es2015", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
+
+## 爬虫
+``` bash
+# PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn add puppeteer -S
+yarn add nightmare -S
+```
+
+## 其他
+``` bash
+# 解压asar
+npx asar extract app.asar ./
+```

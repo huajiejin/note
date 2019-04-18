@@ -13,7 +13,7 @@ const getTop250 = async () => {
   let result = []
   // 遍历10页
   for (let i = 0; i < 10; ++i) {
-    await wait(3000)
+    await page.waitFor(1111)
     // 等待下一页按钮加载
     await page.waitForSelector('.next')
     // 网页上下文中执行代码
@@ -54,7 +54,7 @@ const searchDiscussion = async () => {
 
   let result = []
   for (let i = 0; i < 2; ++i) {
-    await wait(3000)
+    await page.waitFor(1111)
     await page.waitForSelector('.next')
     let ret = await page.evaluate(() => {
       // 过滤
@@ -102,5 +102,63 @@ const searchDiscussion = async () => {
   return result
 }
 
+const typeAndClick = async (page, input, text, button) => {
+  await page.waitFor(input)
+  await page.$eval(input, ele => ele.value='' )
+  await page.type(input, text, { delay: 222 })
+  await page.waitFor(button)
+  await page.click(button)
+  await page.waitFor(6666)
+}
+const addPoilistMarker = async (page) => {
+  await page.waitFor('.poilist')
+  return await page.evaluate(() => {
+    var count = 0
+    var $list = $('.poilist .cf')
+    $list.each(function (i, item) {
+      $(item).addClass(`mypoilist${i}`)
+      count++
+    })
+    return count
+  })
+}
+// 获取地图搜索结构
+const searchMap = async (area, keyword) => {
+  const startTime = Date.now()
+  let result = []
+  const browser = await puppeteer.launch({ headless: false })
+  const page = await browser.newPage()
+  await page.goto('https://map.baidu.com/@12959220.000000004,4825334.500000001,12.07z', { waitUntil: 'networkidle2' })
+
+  await typeAndClick(page, '#sole-input', area, '#search-button')
+  await typeAndClick(page, '#sole-input', keyword, '#search-button')
+  
+  for (let i=0; i<11; ++i) {
+    await page.waitFor('.poilist')
+    await addPoilistMarker(page)
+    let itemClass = `.mypoilist${i}`
+    await page.click(itemClass)
+    await page.waitFor('.status-return')
+    await page.waitFor('.generalHead-titlename')
+    let ret = await page.evaluate(() => {
+      var $container = $('.poidetail-container')
+      return {
+        title: $container.find('.generalHead-titlename').text(),
+        address: $container.find('.generalInfo-address-text').text(),
+        tel: $container.find('.generalInfo-telnum-text').text(),
+      }
+    })
+    result.push(ret)
+    await page.click('.status-return')
+    await page.waitFor(1111)
+  }
+
+  // browser.close()
+  console.log(result)
+  console.log('耗时', `${Date.now()-startTime}ms`)
+  return result
+}
+
 // getTop250()
-searchDiscussion()
+// searchDiscussion()
+searchMap('北京', '小学')

@@ -122,22 +122,14 @@ const addPoilistMarker = async (page) => {
     return count
   })
 }
-// 获取地图搜索结构
-const searchMap = async (area, keyword) => {
-  const startTime = Date.now()
+const getPoilistInfo = async page => {
   let result = []
-  const browser = await puppeteer.launch({ headless: false })
-  const page = await browser.newPage()
-  await page.goto('https://map.baidu.com/@12959220.000000004,4825334.500000001,12.07z', { waitUntil: 'networkidle2' })
-
-  await typeAndClick(page, '#sole-input', area, '#search-button')
-  await typeAndClick(page, '#sole-input', keyword, '#search-button')
-  
-  for (let i=0; i<11; ++i) {
+  for (let i=0; i<10; ++i) {
     await page.waitFor('.poilist')
     await addPoilistMarker(page)
     let itemClass = `.mypoilist${i}`
     await page.click(itemClass)
+    await page.waitFor(1111)
     await page.waitFor('.status-return')
     await page.waitFor('.generalHead-titlename')
     let ret = await page.evaluate(() => {
@@ -152,7 +144,21 @@ const searchMap = async (area, keyword) => {
     await page.click('.status-return')
     await page.waitFor(1111)
   }
+  return result
+}
+// 搜索地图
+const searchMap = async (area, keyword) => {
+  const startTime = Date.now()
+  let result = []
+  const browser = await puppeteer.launch({ headless: false })
+  const page = await browser.newPage()
+  await page.goto('https://map.baidu.com/', { waitUntil: 'networkidle2' })
 
+  await typeAndClick(page, '#sole-input', area, '#search-button')
+  await typeAndClick(page, '#sole-input', keyword, '#search-button')
+  
+  let ret = await getPoilistInfo(page)
+  result = result.concat(ret)
   // browser.close()
   console.log(result)
   console.log('耗时', `${Date.now()-startTime}ms`)
@@ -161,4 +167,4 @@ const searchMap = async (area, keyword) => {
 
 // getTop250()
 // searchDiscussion()
-searchMap('北京', '小学')
+searchMap('杭州', '麦当劳')

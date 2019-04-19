@@ -54,5 +54,5 @@ yarn add nightmare -S
 ## 其他
 ``` bash
 # 解压asar
-npx asar extract app.asar ./
+npx asar extract app.asar ./app
 ```

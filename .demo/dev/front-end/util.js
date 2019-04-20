@@ -9,4 +9,4 @@ const timeDiff = (earlier, later) => {
     millisecond: Math.floor(DIFF_MS%1000),
   }
 }
-console.log(timeDiff(new Date(), new Date('2019-04-12 00:00:00')))
+console.log(timeDiff(new Date('2019-04-12 00:00:00'), new Date()))

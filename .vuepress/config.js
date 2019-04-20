@@ -50,9 +50,11 @@ module.exports = {
         nav: [
           { text: '前端', link: '/dev/front-end/' },
           { text: '后端', link: '/dev/back-end/' },
+          { text: '其他', link: '/dev/other/' },
         ],
         sidebar: {
-          '/dev/': genSidebarConfig([ '', 'util', 'shell', 'css', 'mac', 'nginx', 'vim', 'git', 'ssh', 'vscode' ]),
+          '/dev/front-end/': genSidebarConfig([ '', 'util', 'css' ]),
+          '/dev/other/': genSidebarConfig([ '', 'shell', 'mac', 'nginx', 'vim', 'git', 'ssh', 'vscode' ]),
         }
       },
       '/cim/': {

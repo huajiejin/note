@@ -53,7 +53,7 @@ module.exports = {
           { text: '其他', link: '/dev/other/' },
         ],
         sidebar: {
-          '/dev/front-end/': genSidebarConfig([ '', 'util', 'css' ]),
+          '/dev/front-end/': genSidebarConfig([ '', 'util', 'js', 'css', 'html' ]),
           '/dev/other/': genSidebarConfig([ '', 'shell', 'mac', 'nginx', 'vim', 'git', 'ssh', 'vscode' ]),
         }
       },

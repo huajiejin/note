@@ -10,6 +10,7 @@ jobs:
       - checkout
       - run: sudo npm i -g vuepress@0.14.10
       - run: vuepress build
+      - run: echo "google-site-verification: google0c12c14bc606ef19.html" > .vuepress/dist/google0c12c14bc606ef19.html
       - run:
           name: deploy
           command: |

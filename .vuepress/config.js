@@ -1,6 +1,7 @@
 module.exports = {
   base: '/note/',
   head: [
+    ['meta', { name: 'google-site-verification', content: 'bvu--KW0CFXo35jLWzvm5BcIAs-_QDMwVfMJW7WpH3A' }],
     ['link', { rel: 'icon', href: 'https://avatars0.githubusercontent.com/u/49019730?s=460&v=4' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],

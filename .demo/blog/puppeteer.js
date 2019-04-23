@@ -58,7 +58,8 @@ const searchDiscussion = async () => {
     await page.waitForSelector('.next')
     let ret = await page.evaluate(() => {
       // 过滤
-      const keyword = ['整租', '出租,十号线']
+      // const keyword = ['整租', '出租,十号线']
+      const keyword = ['北纬']
       const checkDiscussionTitle = (title, keyword) => {
         if (!title) return
         if (typeof keyword === 'string') keyword = [keyword]
@@ -166,5 +167,5 @@ const searchMap = async (area, keyword) => {
 }
 
 // getTop250()
-// searchDiscussion()
-searchMap('杭州', '麦当劳')
+searchDiscussion()
+// searchMap('杭州', '麦当劳')

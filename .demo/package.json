@@ -1,0 +1,6 @@
+{
+  "name": "demo",
+  "dependencies": {
+    "puppeteer": "^1.14.0"
+  }
+}

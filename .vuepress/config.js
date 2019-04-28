@@ -23,11 +23,6 @@ module.exports = {
       title: '开发笔记',
       description: '开发笔记',
     },
-    '/cim/': {
-      lang: 'zh-CN 2',
-      title: '计算机信息管理',
-      description: '计算机信息管理',
-    },
   },
   themeConfig: {
     repo: 'huajiejin/note',
@@ -57,21 +52,6 @@ module.exports = {
           '/dev/front-end/': genSidebarConfig([ '', 'util', 'js', 'css', 'html' ]),
           '/dev/other/': genSidebarConfig([ '', 'shell', 'mac', 'nginx', 'vim', 'git', 'ssh', 'vscode' ]),
         }
-      },
-      '/cim/': {
-        label: '计算机信息管理',
-        selectText: '计算机信息管理',
-        nav: [
-          {
-            text: '所有课程',
-            items: [
-              { text: 'c', link: '/cim/c/' },
-            ]
-          }
-        ],
-        sidebar: {
-          '/cim/c/': genSidebarConfig([ '1', '2', '3', '4', '5', '6', '7', '8', '9' ], '目录'),
-        },
       },
     },
   },

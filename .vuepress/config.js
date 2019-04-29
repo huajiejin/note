@@ -44,6 +44,7 @@ module.exports = {
         label: '开发笔记',
         selectText: '开发笔记',
         nav: [
+          { text: '前端知识架构', link: '/dev/fe/' },
           { text: '前端', link: '/dev/front-end/' },
           { text: '后端', link: '/dev/back-end/' },
           { text: '其他', link: '/dev/other/' },

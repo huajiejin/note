@@ -51,7 +51,7 @@ module.exports = {
         ],
         sidebar: {
           '/dev/fe/': genSidebarConfig([ '', 'html', 'css', 'js' ]),
-          '/dev/front-end/': genSidebarConfig([ '', 'util', 'js', 'css', 'html' ]),
+          '/dev/front-end/': genSidebarConfig([ '', 'util', 'gps', 'js', 'css', 'html' ]),
           '/dev/other/': genSidebarConfig([ '', 'shell', 'mac', 'nginx', 'vim', 'git', 'ssh', 'vscode' ]),
         }
       },

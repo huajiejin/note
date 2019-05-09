@@ -45,10 +45,26 @@ npm run pack
 }
 ```
 
-## 爬虫
+## electron使用无头浏览器
 ``` bash
+# puppeteer nightmare 当前不可用
 # PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn add puppeteer -S
-yarn add nightmare -S
+# yarn add nightmare -S
+
+# fork from nightmare
+yarn add eramthgin
+```
+
+## 如何做config
+``` js
+// 1. localstorage 多开窗口时数据不同步
+// 2. fs.writeSync(staticFile) 打包后可读不可写
+
+// electron-store
+const Store = require('electron-store')
+global.store = new Store()
+store.set('key', value)
+store.get('key')
 ```
 
 ## 其他

@@ -33,4 +33,10 @@ git push origin :<branch-name>
 # 打开配置
 git config --edit
 
+# 合并dev分支部分文件到master 直接checkout会覆盖原文件
+git checkout -b <master-tmp>
+git merge dev
+git checkout master
+git checkout <master-tmp> <file1 file2...>
+git branch -D <master-tmp>
 ```

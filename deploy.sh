@@ -5,7 +5,7 @@ cd `dirname $0`
 NOW=`date "+%Y-%m-%d %H:%M:%S"`
 COMMIT_MSG="update $NOW"
 
-if [ $1 ]; then COMMIT_MSG=$1; fi
+if [ "$1" ]; then COMMIT_MSG="$1"; fi
 
 git config user.name huajie
 git config user.email huajiejin@qq.com

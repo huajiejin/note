@@ -1,3 +1,6 @@
+---
+sidebarDepth: 0
+---
 # 装饰器在Taro项目中的实际使用场景
 
 ## 最初有一个拦截登陆的需求，可以这样写（这样写会有问题，后面会讲）
@@ -70,7 +73,7 @@ function withLocation (...args: string[]) {
 export default withLocation
 ```
 
-## 两个装饰器只有super[key]()之前的几行逻辑不同，因此可以封装一个函数来创建这类装饰器，并且之前两个装饰器都会把函数改成异步执行，我们可以兼容一下同步函数
+## 两个装饰器只有super\[key\]\(\)之前的几行逻辑不同，因此可以封装一个函数来创建这类装饰器，并且之前两个装饰器都会把函数改成异步执行，我们可以兼容一下同步函数
 ``` ts
 // @/decorator/generate.ts
 import { inEnv, warn, log } from '@/utils'
@@ -211,31 +214,40 @@ function genDecorator (beforeContinue: Function, isAsync = true) {
 }
 ```
 
-## 所以我们把包装后的函数赋值给Component.prototype[key]就可以解决了，修改后的代码如下
+## 最终代码如下
 ``` ts
+import { inEnv } from '@/utils'
+
+/**
+* 创造类装饰器
+* @param {Function} beforeContinue 必须返回true才能继续执行被代理的函数
+* @param {Boolean} isAsync 默认异步执行 (babel处理过的async函数constructor.name不再是AsyncFunction,所以手动传参区分)
+* @return {Function} 返回一个装饰器函数，接收参数为被代理的函数名
+*/
 function genDecorator (beforeContinue: Function, isAsync = true) {
   return function (...args: string[]) {
     return function (Component) {
-      // 仅用于微信小程序 兼容异常
-      if (!inEnv('weapp') || !args.length || !beforeContinue) return Component
-      return class extends Component {
-        constructor(props) {
-          super(props)
-          for (let key of args) {
-            const oldFn = super[key]
-            if (typeof oldFn !== 'function') {
-              warn(`${Component.name}.prototype找不到${key}函数(class中定义的箭头函数会是undefined)`)
-              continue
-            }
-            Component.prototype[key] = isAsync ? (async () => {
-              if (await beforeContinue()) oldFn()
-            }) : (() => {
-              if (beforeContinue()) oldFn()
-            })
-          }
+      if (!inEnv('weapp') || !args.length || !beforeContinue) return
+      for (let key of args) {
+        let descriptor = Object.getOwnPropertyDescriptor(Component.prototype, key) as PropertyDescriptor
+        if (!descriptor) {
+          console.warn(`Object.getOwnPropertyDescriptor(${Component.name}.prototype, ${key}) is ${descriptor}`)
+          continue
         }
+        // 修改原对象的原型，而不再是返回一个继承后的新对象
+        Object.defineProperty(Component.prototype, key, {
+          ...descriptor,
+          // 修改value属性
+          value: isAsync ? (async function (...arg) {
+            // 执行钩子函数，透传参数
+            if (await beforeContinue()) descriptor.value.apply(this, arg)
+          }) : (function (...arg) {
+            if (beforeContinue()) descriptor.value.apply(this, arg)
+          })
+        })
       }
     }
   }
 }
+export default genDecorator
 ```

@@ -20,7 +20,7 @@ npx vuepress dev
 ```
 
 ## 本地执行脚本部署到 GitHub Pages
-<<< @/deploy.sh
+<<< @/.demo/blog/deploy.sh
 ``` bash
 # 关键代码，把dist目录强推到gh-pages分支
 git push -f git@github.com:username/reponame.git master:gh-pages
@@ -42,4 +42,4 @@ git push -f git@github.com:username/reponame.git master:gh-pages
 4. 配置reponame/.circleci/config.yml  
 
 <<< @/.circleci/config.yml
-<<< @/deploy.circleci.sh
+<<< @/.demo/blog/deploy.circleci.sh

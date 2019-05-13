@@ -23,6 +23,11 @@ module.exports = {
       title: '开发笔记',
       description: '开发笔记',
     },
+    '/lc/': {
+      lang: 'zh-CN 2',
+      title: 'leetcode',
+      description: 'leetcode',
+    },
   },
   themeConfig: {
     repo: 'huajiejin/note',
@@ -54,6 +59,10 @@ module.exports = {
           '/dev/front-end/': genSidebarConfig([ '', 'util', 'gps', 'js', 'css', 'html', 'teach' ]),
           '/dev/other/': genSidebarConfig([ '', 'shell', 'php', 'mac', 'nginx', 'vim', 'git', 'ssh', 'vscode' ]),
         }
+      },
+      '/lc/': {
+        label: 'leetcode',
+        selectText: 'leetcode',
       },
     },
   },

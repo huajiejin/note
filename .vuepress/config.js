@@ -42,7 +42,7 @@ module.exports = {
           { text: '文章', link: '/blog/' },
         ],
         sidebar: {
-          '/blog/': genSidebarConfig([ '', 'puppeteer', 'antd', 'electron', 'taro-decrator', 'virtualbox' ], '所有文章'),
+          '/blog/': genSidebarConfig([ '', 'npm', 'puppeteer', 'antd', 'electron', 'taro-decrator', 'virtualbox' ], '所有文章'),
         },
       },
       '/dev/': {

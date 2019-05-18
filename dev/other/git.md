@@ -39,4 +39,7 @@ git merge dev
 git checkout master
 git checkout <master-tmp> <file1 file2...>
 git branch -D <master-tmp>
+
+# 正则匹配批量删除分支
+git branch -r | awk -F/ '/./{print $2}' | xargs -I {} git push origin :{}
 ```

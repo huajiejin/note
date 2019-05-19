@@ -42,4 +42,9 @@ git branch -D <master-tmp>
 
 # 正则匹配批量删除分支
 git branch -r | awk -F/ '/./{print $2}' | xargs -I {} git push origin :{}
+
+# 拉所有远程分支
+git fetch --all
+git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+git pull --all
 ```

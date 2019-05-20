@@ -47,4 +47,8 @@ git branch -r | awk -F/ '/./{print $2}' | xargs -I {} git push origin :{}
 git fetch --all
 git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 git pull --all
+
+# 删除远程分支后git branch -a依然可见
+git remote show origin
+git remote prune origin
 ```

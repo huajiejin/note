@@ -51,4 +51,12 @@ git pull --all
 # 删除远程分支后git branch -a依然可见
 git remote show origin
 git remote prune origin
+
+# 缓存
+git stash
+git stash save -u ["注释"]
+git stash list
+git stash pop
+git stash show
+git stash drop stash@{0}
 ```

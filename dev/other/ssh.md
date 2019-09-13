@@ -31,4 +31,24 @@ vi authorized_keys
 vi /etc/ssh/sshd_config
 # 重启命令
 service sshd restart
+# 日志位置
+/var/log/secure
+```
+
+``` bash
+# Debian
+# 日志位置
+/var/log/auth.log
+```
+
+``` bash
+# 调试
+ssh -v user@host
+# 查看日志
+
+# 客户端无法免密登录
+# 验证是否缺少某些key 例如: Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+/usr/sbin/sshd
+# 重新生成缺少的key
+ssh-keygen -t rsa -f /etc/ssh/ssh_host_ecdsa_key
 ```

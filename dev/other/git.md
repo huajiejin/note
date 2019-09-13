@@ -22,6 +22,8 @@ git checkout <path | file>
 git reset HEAD <path | file>
 # after git commit
 git reset --hard <commit-id>
+# 撤销上次commit 保留git add
+git reset --soft [HEAD^ | HEAD~1]
 
 # 删除本地分支
 git branch -d <branch-name>

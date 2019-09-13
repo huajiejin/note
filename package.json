@@ -14,7 +14,8 @@
   "homepage": "https://github.com/huajiejin/note#readme",
   "scripts": {
     "dev": "vuepress dev",
-    "build": "vuepress build"
+    "build": "vuepress build",
+    "deploy": "sh .bin/deploy.sh"
   },
   "devDependencies": {
     "pug": "^2.0.3",
